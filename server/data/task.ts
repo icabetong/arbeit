@@ -1,45 +1,45 @@
-import prisma from "./prisma";
-import type { Task } from "@prisma/client";
+import prisma from './prisma'
+import type { Task } from '@prisma/client'
 
 export async function getTasks(project: number) {
-  const tasks = await prisma.task.findMany({
-    where: {
-      project,
-    },
-  });
+	const tasks = await prisma.task.findMany({
+		where: {
+			project
+		}
+	})
 
-  return tasks;
+	return tasks
 }
 
 export async function getTask(taskId: number) {
-  const task = await prisma.task.findUnique({
-    where: { taskId },
-  });
+	const task = await prisma.task.findUnique({
+		where: { taskId }
+	})
 
-  return task;
+	return task
 }
 
-export async function createTask(task: Omit<Task, "taskId">) {
-  const result = await prisma.task.create({
-    data: task,
-  });
+export async function createTask(task: Omit<Task, 'taskId'>) {
+	const result = await prisma.task.create({
+		data: task
+	})
 
-  return result;
+	return result
 }
 
-export async function updateTask(taskId: number, task: Omit<Task, "taskId">) {
-  const result = await prisma.task.update({
-    data: task,
-    where: {
-      taskId,
-    },
-  });
+export async function updateTask(taskId: number, task: Omit<Task, 'taskId'>) {
+	const result = await prisma.task.update({
+		data: task,
+		where: {
+			taskId
+		}
+	})
 
-  return result;
+	return result
 }
 
 export async function removeTask(taskId: number) {
-  return await prisma.task.delete({
-    where: { taskId },
-  });
+	return await prisma.task.delete({
+		where: { taskId }
+	})
 }
