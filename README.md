@@ -1,63 +1,15 @@
-# Nuxt 3 Minimal Starter
+# arbeit
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+![eslint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+![prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 
-## Setup
+## Built with
 
-Make sure to install the dependencies:
+- TypeScript
+- Nuxt
+- TailwindCSS
+- and other [cool libraries](https://github.com/icabetong/arbeit/blob/main/package.json)
 
-```bash
-# npm
-npm install
+## Forking/Cloning
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+You can use the source code of this website for your own, but please add some attributions such us, linking back to [icabetong.me](https://www.icabetong.me) or to this [GitHub Repository](https://www.github.com/icabetong/arbeit). Also, please remove my personal information, images, resume link and etc. Thanks!
