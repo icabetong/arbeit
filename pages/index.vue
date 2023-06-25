@@ -14,6 +14,7 @@
 <script setup lang="ts">
 const editor = ref({ open: false })
 const { t } = useI18n({ useScope: 'local' })
+
 useHead({
 	title: 'Arbeit'
 })

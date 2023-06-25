@@ -3,3 +3,11 @@
 		<NuxtPage />
 	</div>
 </template>
+
+<script setup lang="ts">
+const { data: projects, refresh } = useFetch('/api/project', {
+	method: 'GET'
+})
+
+provide('projects', { projects, refresh })
+</script>

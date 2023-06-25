@@ -1,10 +1,18 @@
 <template>
 	<modal :open="open" :hideable="state.hideable" @hide="$emit('hide')">
-		<template #title>{{ t('create') }}</template>
+		<template #title>{{ t('create.heading') }}</template>
+		<template #description>{{ t('create.description') }}</template>
 		<template #body>
-			<input type="text" id="name" class="form-input" />
+			<form-group
+				type="text"
+				id="name"
+				:label="$t('field.project-name')"
+				:placeholder="$t('placeholder.project-name')" />
 			<div class="dialog-actions">
-				<button type="button" class="button-primary">{{ t('actions.create') }}</button>
+				<button type="button" class="button-secondary" @click="$emit('hide')">
+					{{ $t('actions.cancel') }}
+				</button>
+				<button type="button" class="button-primary">{{ $t('actions.create') }}</button>
 			</div>
 		</template>
 	</modal>
@@ -23,8 +31,10 @@ defineEmits(['hide'])
 <i18n lang="json">
 {
 	"en": {
-		"create": "Create new Project",
-		"update": "Update exiting Project"
+		"create": {
+			"heading": "Create new Project",
+			"description": "To create a new project, you'll need to type in a name."
+		}
 	}
 }
 </i18n>

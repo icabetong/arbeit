@@ -5,6 +5,14 @@
 		"new": "New",
 		"create": "Create",
 		"save": "Save",
-		"delete": "Delete"
+		"delete": "Delete",
+		"cancel": "Cancel"
+	},
+	"field": {
+		"project-name": "Project Name",
+		"description": "Description"
+	},
+	"placeholder": {
+		"project-name": "My Project"
 	}
 }

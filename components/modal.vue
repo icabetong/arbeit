@@ -33,7 +33,7 @@
 								<x-mark-icon class="h-5 w-5 text-gray-500" />
 							</button>
 							<div class="px-6 pt-6">
-								<dialog-title as="h3" class="mb-4 text-lg font-bold leading-6 text-gray-700">
+								<dialog-title as="h3" class="mb-0.5 text-lg font-bold leading-6 text-gray-700">
 									<slot name="title"></slot>
 								</dialog-title>
 								<dialog-description class="space-y-2 text-sm text-gray-500">
