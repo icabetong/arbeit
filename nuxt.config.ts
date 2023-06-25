@@ -6,10 +6,8 @@ export default defineNuxtConfig({
 		lazy: false,
 		langDir: 'locales',
 		defaultLocale: 'en',
-		locales: [
-			{ code: 'en', file: 'en-US.json' },
-			{ code: 'fr', file: 'fr-FR.json' }
-		]
+		vueI18nLoader: true,
+		locales: [{ code: 'en', file: 'en-US.json' }]
 	},
 	postcss: {
 		plugins: {
