@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  projectId   Int      @id @default(autoincrement())
+  name        String   @db.VarChar(100)
+  description String?  @db.Text
+  created     DateTime @db.Timestamp(0)
+  updated     DateTime @db.Timestamp(0)
+  tasks       Task[]
+
+  @@map("projects")
+}
+
+model Task {
+  taskId      Int      @id @default(autoincrement())
+  title       String   @db.VarChar(100)
+  description String?  @db.Text
+  created     DateTime @db.Timestamp(0)
+  updated     DateTime @db.Timestamp(0)
+  project     Int
+  priority    Int
+  projects    Project  @relation(fields: [project], references: [projectId], onDelete: NoAction, onUpdate: NoAction, map: "tasks_ibfk_1")
+
+  @@index([project], map: "project")
+  @@map("tasks")
+}
