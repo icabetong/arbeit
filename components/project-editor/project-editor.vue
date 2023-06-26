@@ -12,20 +12,25 @@
 				<button type="button" class="button-secondary" @click="$emit('hide')">
 					{{ $t('actions.cancel') }}
 				</button>
-				<button type="button" class="button-primary">{{ $t('actions.create') }}</button>
+				<spinner-button type="button" class="button-primary">
+					<check-icon class="mr-2 h-4 w-4" />
+					{{ $t('actions.create') }}
+				</spinner-button>
 			</div>
 		</template>
 	</modal>
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n({ useScope: 'local' })
-const state = ref({ hideable: true })
+import { CheckIcon } from '@heroicons/vue/20/solid'
 
 defineProps({
 	open: Boolean
 })
 defineEmits(['hide'])
+
+const { t } = useI18n({ useScope: 'local' })
+const state = ref({ hideable: true })
 </script>
 
 <i18n lang="json">
