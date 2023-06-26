@@ -1,7 +1,8 @@
 import prisma from './prisma'
 import type { Task } from '@prisma/client'
+import generateId from '../util/id'
 
-export async function getTasks(project: number) {
+export async function getTasks(project: string) {
 	const tasks = await prisma.task.findMany({
 		where: {
 			project
@@ -11,7 +12,7 @@ export async function getTasks(project: number) {
 	return tasks
 }
 
-export async function getTask(taskId: number) {
+export async function getTask(taskId: string) {
 	const task = await prisma.task.findUnique({
 		where: { taskId }
 	})
@@ -21,13 +22,16 @@ export async function getTask(taskId: number) {
 
 export async function createTask(task: Omit<Task, 'taskId'>) {
 	const result = await prisma.task.create({
-		data: task
+		data: {
+			...task,
+			taskId: generateId()
+		}
 	})
 
 	return result
 }
 
-export async function updateTask(taskId: number, task: Omit<Task, 'taskId'>) {
+export async function updateTask(taskId: string, task: Omit<Task, 'taskId'>) {
 	const result = await prisma.task.update({
 		data: task,
 		where: {
@@ -38,7 +42,7 @@ export async function updateTask(taskId: number, task: Omit<Task, 'taskId'>) {
 	return result
 }
 
-export async function removeTask(taskId: number) {
+export async function removeTask(taskId: string) {
 	return await prisma.task.delete({
 		where: { taskId }
 	})

@@ -8,7 +8,8 @@
 			:name="id"
 			:placeholder="placeholder"
 			:value="modelValue"
-			:required="required" />
+			:required="required"
+			@input="handleInput" />
 	</label>
 </template>
 
@@ -21,5 +22,9 @@ defineProps({
 	modelValue: String,
 	required: Boolean
 })
-defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue'])
+
+function handleInput(event: Event) {
+	emit('update:modelValue', (event.target as HTMLInputElement).value)
+}
 </script>

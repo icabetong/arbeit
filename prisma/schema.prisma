@@ -8,23 +8,23 @@ datasource db {
 }
 
 model Project {
-  projectId   Int      @id @default(autoincrement())
+  projectId   String   @id @db.VarChar(20)
   name        String   @db.VarChar(100)
   description String?  @db.Text
-  created     DateTime @db.Timestamp(0)
-  updated     DateTime @db.Timestamp(0)
+  created     DateTime @default(now()) @db.Timestamp(0)
+  updated     DateTime @default(now()) @db.Timestamp(0)
   tasks       Task[]
 
   @@map("projects")
 }
 
 model Task {
-  taskId      Int      @id @default(autoincrement())
+  taskId      String   @id @db.VarChar(20)
   title       String   @db.VarChar(100)
   description String?  @db.Text
-  created     DateTime @db.Timestamp(0)
-  updated     DateTime @db.Timestamp(0)
-  project     Int
+  created     DateTime @default(now()) @db.Timestamp(0)
+  updated     DateTime @default(now()) @db.Timestamp(0)
+  project     String   @db.VarChar(20)
   priority    Int
   projects    Project  @relation(fields: [project], references: [projectId], onDelete: NoAction, onUpdate: NoAction, map: "tasks_ibfk_1")
 

@@ -5,9 +5,11 @@
 </template>
 
 <script setup lang="ts">
-const { data: projects, refresh } = useFetch('/api/project', {
+const { data, refresh } = await useFetch('/api/project', {
+	key: 'projects',
 	method: 'GET'
 })
+const { change, project } = await useProjects()
 
-provide('projects', { projects, refresh })
+provide('projects', { projects: data, refresh, change, project })
 </script>
