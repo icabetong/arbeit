@@ -15,5 +15,9 @@ export default defineNuxtConfig({
 			autoprefixer: {}
 		}
 	},
+	components: {
+		global: true,
+		dirs: ['~/components']
+	},
 	css: ['@/assets/css/main.css']
 })

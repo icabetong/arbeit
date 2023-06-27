@@ -1,5 +1,5 @@
 <template>
-	<div id="app" class="bg-white dark:bg-gray-800">
+	<div id="app" class="bg-white dark:bg-gray-800" :class="theme === 'dark' && 'dark'">
 		<NuxtPage />
 	</div>
 </template>
@@ -9,7 +9,9 @@ const { data, refresh } = await useFetch('/api/project', {
 	key: 'projects',
 	method: 'GET'
 })
-const { change, project } = await useProjects()
+const { theme, change } = useTheme()
+const { replace, project } = await useProjects()
 
-provide('projects', { projects: data, refresh, change, project })
+provide('theme', { theme, change })
+provide('projects', { projects: data, refresh, replace, project })
 </script>

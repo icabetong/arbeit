@@ -14,5 +14,10 @@
 	},
 	"placeholder": {
 		"project-name": "My Project"
+	},
+	"theme": {
+		"auto": "System",
+		"light": "Light",
+		"dark": "Dark"
 	}
 }
