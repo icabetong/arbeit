@@ -1,4 +1,4 @@
-import type { Project } from '@prisma/client'
+import type { Project, Profile } from '@prisma/client'
 
 export {}
 
@@ -12,6 +12,10 @@ declare global {
 		project: Project
 		projects: Project[]
 		replace: (current: Project) => void
+		refresh: () => Promise<void>
+	}
+	type ProfileResource = {
+		profile: Profile
 		refresh: () => Promise<void>
 	}
 }

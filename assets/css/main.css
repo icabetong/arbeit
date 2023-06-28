@@ -26,7 +26,7 @@ body {
 		@apply mb-2 mr-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-all ease-in-out hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-transparent dark:text-gray-400 dark:hover:bg-gray-600 dark:focus:ring-gray-700;
 	}
 	.form-input {
-		@apply block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-800 shadow-sm transition-all duration-150 ease-in-out focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-70  dark:border-gray-600 dark:bg-transparent dark:text-white dark:placeholder-gray-400 dark:focus:border-gray-500 dark:focus:ring-gray-500;
+		@apply block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-800 shadow-sm transition-all duration-150 ease-in-out focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-70  dark:border-gray-700 dark:bg-transparent dark:text-white dark:placeholder-gray-400 dark:focus:border-gray-500 dark:focus:ring-gray-500;
 	}
 	.form-label {
 		@apply mb-2 block text-sm font-medium text-gray-800 dark:text-gray-50;

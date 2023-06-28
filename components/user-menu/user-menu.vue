@@ -13,8 +13,11 @@
 			leave-to-class="transform scale-95 opacity-0">
 			<menu-items
 				class="absolute right-0 z-10 mt-2 w-60 origin-top-right rounded-md bg-white py-2 text-sm text-gray-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-700 dark:text-gray-50">
-				<div class="border-b p-3">
-					<h6>{{ user?.email }}</h6>
+				<div class="border-b p-3 dark:border-b-gray-600">
+					<h6 class="mb-1 font-medium">
+						{{ profile ? `${profile.firstName} ${profile.lastName}` : user?.email }}
+					</h6>
+					<p v-if="profile.firstName && profile.lastName" class="description">{{ user?.email }}</p>
 				</div>
 				<ul class="py-1">
 					<menu-item as="li">
@@ -44,6 +47,7 @@ import { Menu as MenuRoot, MenuButton, MenuItems, MenuItem } from '@headlessui/v
 
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
+const { profile, refresh } = inject('profile') as ProfileResource
 
 async function signOut() {
 	try {

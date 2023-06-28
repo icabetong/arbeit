@@ -1,6 +1,5 @@
 import prisma from './prisma'
 import type { Project } from '@prisma/client'
-import generateId from '../util/id'
 
 export async function getProjects() {
 	return await prisma.project.findMany()

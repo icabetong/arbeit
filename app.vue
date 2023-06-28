@@ -14,4 +14,13 @@ const { replace, project } = await useProjects()
 
 provide('theme', { theme, change })
 provide('projects', { projects: data, refresh, replace, project })
+
+const user = useSupabaseUser()
+if (user) {
+	const response = await useFetch(`/api/profile/${user.value?.id}`, {
+		key: 'profile',
+		method: 'GET'
+	})
+	provide('profile', { profile: response.data, refresh: response.refresh })
+}
 </script>
