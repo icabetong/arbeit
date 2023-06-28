@@ -1,6 +1,7 @@
 <template>
-	<listbox v-model="theme" as="div" class="relative" @update-model-value="change">
-		<listbox-button>
+	<listbox v-model="theme" as="div" class="relative" @update:model-value="change">
+		<listbox-button
+			class="rounded-md p-2 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50 dark:hover:bg-gray-700">
 			<moon-icon v-if="theme === 'dark'" class="h-6 w-6" />
 			<sun-icon v-else-if="theme === 'light'" class="h-6 w-6" />
 			<sparkles-icon v-else class="h-6 w-6" />

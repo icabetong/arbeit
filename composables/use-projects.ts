@@ -2,7 +2,7 @@ import { type Project } from '@prisma/client'
 
 export default async function () {
 	const project = ref<Project | null>(null)
-	const change = (current: Project) => (project.value = current)
+	const replace = (current: Project) => (project.value = current)
 
-	return { change, project }
+	return { replace, project }
 }

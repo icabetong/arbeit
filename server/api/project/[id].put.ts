@@ -2,10 +2,9 @@ import { updateProject } from '../../data/project'
 
 export default defineEventHandler(async (event) => {
 	const { project } = await readBody(event)
-	const id = event.context.params?.id
+	const projectId = event.context.params?.id
 
-	if (id) {
-		const projectId = parseInt(id, 10)
+	if (projectId) {
 		let result = updateProject(projectId, project)
 		return result
 	}

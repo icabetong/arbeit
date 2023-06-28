@@ -35,7 +35,7 @@ const emit = defineEmits(['hide'])
 const { t } = useI18n({ useScope: 'local' })
 const state = ref({ hideable: true, loading: false })
 const name = ref('')
-const { refresh } = inject('projects') as ProjectsProvider
+const { refresh } = inject('projects') as ProjectsResource
 
 async function submit() {
 	state.value.loading = true

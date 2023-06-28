@@ -23,7 +23,7 @@
 						leave-from="opacity-100 scale-100"
 						leave-to="opacity-0 scale-95">
 						<dialog-panel
-							class="z-30 w-full transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all"
+							class="z-30 w-full transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all dark:bg-gray-800 dark:text-gray-50"
 							:class="size ? size : 'max-w-md'">
 							<button
 								type="button"
@@ -33,10 +33,12 @@
 								<x-mark-icon class="h-5 w-5 text-gray-500" />
 							</button>
 							<div class="px-6 pt-6">
-								<dialog-title as="h3" class="mb-0.5 text-lg font-bold leading-6 text-gray-700">
+								<dialog-title
+									as="h3"
+									class="mb-0.5 text-lg font-bold leading-6 text-gray-700 dark:text-gray-50">
 									<slot name="title"></slot>
 								</dialog-title>
-								<dialog-description class="space-y-2 text-sm text-gray-500">
+								<dialog-description class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
 									<slot name="description"></slot>
 								</dialog-description>
 							</div>

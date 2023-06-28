@@ -15,14 +15,15 @@
 			leave-to-class="transform scale-95 opacity-0">
 			<listbox-options
 				as="ul"
-				class="absolute left-0 z-10 mt-2 w-60 origin-top-left rounded-md bg-white py-2 text-sm text-gray-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+				class="absolute left-0 z-10 mt-2 w-60 origin-top-left rounded-md bg-white py-2 text-sm text-gray-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:text-gray-50">
 				<listbox-option
 					v-slot="{ selected }"
 					v-for="project in projects"
 					:key="project.projectId"
 					:value="project"
 					as="template">
-					<li class="relative cursor-pointer py-2 pl-10 pr-4 font-medium hover:bg-gray-200">
+					<li
+						class="relative cursor-pointer py-2 pl-10 pr-4 font-medium hover:bg-gray-200 dark:hover:bg-gray-500">
 						{{ project.name }}
 						<span v-if="selected" class="absolute inset-y-0 left-0 flex items-center pl-3">
 							<check-icon class="h-4 w-4" aria-hidden="true" />
@@ -37,8 +38,13 @@
 <script setup lang="ts">
 import { ChevronDownIcon, CheckIcon } from '@heroicons/vue/20/solid'
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
+import { type Project } from '@prisma/client'
 
 const { projects, project, replace } = inject('projects') as ProjectsResource
 
-defineProps<ProjectsResource>()
+defineProps({
+	projects: Array as PropType<Project[]>,
+	project: Object as PropType<Project>,
+	replace: Function
+})
 </script>

@@ -1,9 +1,8 @@
 import { getProject } from '../../data/project'
 
 export default defineEventHandler(async (event) => {
-	const id = event.context.params?.id
-	if (id) {
-		const projectId = parseInt(id, 10)
+	const projectId = event.context.params?.id
+	if (projectId) {
 		return await getProject(projectId)
 	}
 
