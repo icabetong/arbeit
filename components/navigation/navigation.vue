@@ -1,8 +1,11 @@
 <template>
 	<div class="border-b dark:border-b-gray-600">
-		<nav class="box flex items-center justify-between px-8 py-4">
+		<nav class="box flex items-center justify-between px-8 py-3">
 			<div class="flex items-center gap-8">
-				<a v-if="projects.length === 0" href="/" class="text-lg font-semibold text-gray-700">
+				<a
+					v-if="projects.length === 0"
+					href="/"
+					class="text-lg font-semibold text-gray-700 dark:text-gray-50">
 					{{ $t('app') }}
 				</a>
 				<div v-if="projects.length > 0" class="flex items-center justify-center gap-8">

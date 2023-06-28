@@ -16,7 +16,7 @@ const editor = ref({ open: false })
 const { t } = useI18n({ useScope: 'local' })
 
 useHead({
-	title: 'Arbeit'
+	title: t('app')
 })
 
 const handleEditor = () => (editor.value.open = !editor.value.open)

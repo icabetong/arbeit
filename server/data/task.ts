@@ -20,12 +20,9 @@ export async function getTask(taskId: string) {
 	return task
 }
 
-export async function createTask(task: Omit<Task, 'taskId'>) {
+export async function createTask(task: Task) {
 	const result = await prisma.task.create({
-		data: {
-			...task,
-			taskId: generateId()
-		}
+		data: task
 	})
 
 	return result

@@ -26,7 +26,9 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.14",
     "@heroicons/vue": "^2.0.18",
+    "@nuxtjs/supabase": "^0.3.7",
     "@prisma/client": "^4.16.1",
+    "@supabase/supabase-js": "^2.26.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2"

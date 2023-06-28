@@ -3,31 +3,43 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
 model Project {
-  projectId   String   @id @db.VarChar(20)
-  name        String   @db.VarChar(100)
-  description String?  @db.Text
-  created     DateTime @default(now()) @db.Timestamp(0)
-  updated     DateTime @default(now()) @db.Timestamp(0)
+  projectId   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String   @default("")
+  description String?  @default("")
+  created     DateTime @default(now()) @db.Timestamptz(6)
+  updated     DateTime @default(now()) @db.Timestamptz(6)
   tasks       Task[]
 
   @@map("projects")
 }
 
 model Task {
-  taskId      String   @id @db.VarChar(20)
-  title       String   @db.VarChar(100)
-  description String?  @db.Text
-  created     DateTime @default(now()) @db.Timestamp(0)
-  updated     DateTime @default(now()) @db.Timestamp(0)
-  project     String   @db.VarChar(20)
-  priority    Int
-  projects    Project  @relation(fields: [project], references: [projectId], onDelete: NoAction, onUpdate: NoAction, map: "tasks_ibfk_1")
+  taskId      String   @id(map: "Tasks_pkey") @db.Uuid
+  created     DateTime @default(now()) @db.Timestamptz(6)
+  updated     DateTime @default(now()) @db.Timestamptz(6)
+  title       String   @default("") @db.VarChar
+  description String   @default("")
+  priority    Int      @default(0) @db.SmallInt
+  project     String?  @db.Uuid
+  projects    Project? @relation(fields: [project], references: [projectId], onDelete: Cascade, onUpdate: NoAction, map: "tasks_ibfk_1")
 
-  @@index([project], map: "project")
   @@map("tasks")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Profile {
+  id        String   @id @db.Uuid
+  firstName String?
+  lastName  String?
+  created   DateTime @default(now()) @db.Timestamptz(6)
+  email     String?
+  avatarURL String?
+
+  @@map("profiles")
 }
