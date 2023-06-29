@@ -44,10 +44,11 @@
 <script setup lang="ts">
 import { UserCircleIcon } from '@heroicons/vue/24/outline'
 import { Menu as MenuRoot, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import type { Profile } from '@prisma/client'
 
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
-const { profile, refresh } = inject('profile') as ProfileResource
+const profile = inject('profile') as Profile
 
 async function signOut() {
 	try {

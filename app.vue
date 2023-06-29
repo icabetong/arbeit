@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang="ts">
+const profile = await useProfile()
 const { data, refresh } = await useFetch('/api/project', {
 	key: 'projects',
 	method: 'GET'
@@ -15,12 +16,5 @@ const { replace, project } = await useProjects()
 provide('theme', { theme, change })
 provide('projects', { projects: data, refresh, replace, project })
 
-const user = useSupabaseUser()
-if (user) {
-	const response = await useFetch(`/api/profile/${user.value?.id}`, {
-		key: 'profile',
-		method: 'GET'
-	})
-	provide('profile', { profile: response.data, refresh: response.refresh })
-}
+provide('profile', profile)
 </script>
