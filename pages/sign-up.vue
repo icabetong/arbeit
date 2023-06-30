@@ -1,32 +1,30 @@
 <template>
 	<page hide-navigation>
-		<template #content>
-			<form class="mx-auto w-[32rem]" @submit.prevent="signUp">
+		<form class="mx-auto w-[32rem]" @submit.prevent="signUp">
+			<div>
+				<h1 class="heading">{{ t('heading') }}</h1>
+				<p class="description">{{ t('description') }}</p>
+			</div>
+			<div class="my-4 space-y-2">
 				<div>
-					<h1 class="heading">{{ t('heading') }}</h1>
-					<p class="description">{{ t('description') }}</p>
+					<form-group
+						type="email"
+						id="email"
+						v-model.trim="credentials.email"
+						:label="$t('field.email')"
+						:placeholder="$t('placeholder.email')" />
 				</div>
-				<div class="my-4 space-y-2">
-					<div>
-						<form-group
-							type="email"
-							id="email"
-							v-model.trim="credentials.email"
-							:label="$t('field.email')"
-							:placeholder="$t('placeholder.email')" />
-					</div>
-					<div>
-						<form-group
-							type="password"
-							id="password"
-							v-model.trim="credentials.password"
-							:label="$t('field.password')"
-							:placeholder="$t('placeholder.password')" />
-					</div>
+				<div>
+					<form-group
+						type="password"
+						id="password"
+						v-model.trim="credentials.password"
+						:label="$t('field.password')"
+						:placeholder="$t('placeholder.password')" />
 				</div>
-				<button type="submit" class="button-primary">{{ $t('actions.register') }}</button>
-			</form>
-		</template>
+			</div>
+			<button type="submit" class="button-primary">{{ $t('actions.register') }}</button>
+		</form>
 	</page>
 </template>
 

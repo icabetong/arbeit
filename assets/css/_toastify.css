@@ -1,0 +1,8 @@
+:root {
+	--toastify-color-light: theme(colors.gray.50) !important;
+	--toastify-color-dark: theme(colors.gray.800) !important;
+	--toastify-color-info: theme(colors.blue.600) !important;
+	--toastify-color-success: theme(colors.emerald.600) !important;
+	--toastify-color-warning: theme(colors.amber.600) !important;
+	--toastify-color-error: theme(colors.rose.600) !important;
+}

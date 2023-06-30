@@ -1,12 +1,13 @@
 <template>
 	<page>
-		<template #content>
-			<div class="mx-auto flex max-w-md flex-1 flex-col items-center justify-center text-center">
-				<h1 class="heading">{{ t('empty.heading') }}</h1>
-				<p class="mb-4 mt-2 text-sm">{{ t('empty.description') }}</p>
-				<button type="button" class="button-primary px-8" @click="handleEditor">Create</button>
-			</div>
-		</template>
+		<project-overview v-if="project" />
+		<div
+			v-else
+			class="mx-auto flex max-w-md flex-1 flex-col items-center justify-center text-center">
+			<h1 class="heading">{{ t('empty.heading') }}</h1>
+			<p class="mb-4 mt-2 text-sm">{{ t('empty.description') }}</p>
+			<button type="button" class="button-primary px-8" @click="handleEditor">Create</button>
+		</div>
 	</page>
 	<project-editor :open="editor.open" @hide="handleEditor" />
 </template>
@@ -14,6 +15,7 @@
 <script setup lang="ts">
 const editor = ref({ open: false })
 const { t } = useI18n({ useScope: 'local' })
+const { project, refresh } = inject('projects') as ProjectsResource
 
 useHead({
 	title: t('app')

@@ -1,10 +1,20 @@
+import type { Profile } from '@prisma/client'
+
 export default async function () {
 	const user = useSupabaseUser()
+	const profile = ref<Profile | null>(null)
 	if (!user.value) return null
 
-	const response = await $fetch(`/api/profile/${user.value?.id}`, {
-		method: 'GET'
-	})
+	async function fetchProfile() {
+		const response: Profile = await $fetch(`/api/profile/${user.value?.id}`, {
+			method: 'GET'
+		})
 
-	return response
+		profile.value = response
+	}
+
+	fetchProfile()
+	watch(user.value, fetchProfile)
+
+	return profile
 }

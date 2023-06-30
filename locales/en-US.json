@@ -9,7 +9,8 @@
 		"cancel": "Cancel",
 		"sign-in": "Sign-in",
 		"sign-out": "Sign-out",
-		"register": "Register"
+		"register": "Register",
+		"forgot-password": "Forgot Password?"
 	},
 	"field": {
 		"project-name": "Project Name",

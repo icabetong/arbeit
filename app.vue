@@ -6,15 +6,11 @@
 
 <script setup lang="ts">
 const profile = await useProfile()
-const { data, refresh } = await useFetch('/api/project', {
-	key: 'projects',
-	method: 'GET'
-})
 const { theme, change } = useTheme()
-const { replace, project } = await useProjects()
+const { replace, project, projects, refresh } = await useProjects()
 
 provide('theme', { theme, change })
-provide('projects', { projects: data, refresh, replace, project })
+provide('projects', { projects, refresh, replace, project })
 
 provide('profile', profile)
 </script>
