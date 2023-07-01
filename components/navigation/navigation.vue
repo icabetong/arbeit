@@ -1,6 +1,9 @@
 <template>
 	<div class="border-b dark:border-b-gray-700">
-		<nav class="box flex items-center justify-between px-8 py-3">
+		<nav class="box flex items-center justify-between px-4 py-3 md:px-8">
+			<div class="block sm:hidden">
+				<navigation-links />
+			</div>
 			<div class="flex items-center gap-8">
 				<a
 					v-if="projects.length === 0"
@@ -14,14 +17,14 @@
 						:project="project"
 						:replace="replace"
 						:refresh="refresh" />
-					<ul class="flex items-center justify-around gap-4 text-sm font-medium">
+					<ul class="hidden items-center justify-around gap-4 text-sm font-medium sm:flex">
 						<li>
-							<nuxt-link to="/">{{ t('overview') }}</nuxt-link>
+							<nuxt-link to="/">{{ $t('pages.overview') }}</nuxt-link>
 						</li>
 						<li>
-							{{ t('tasks') }}
+							<nuxt-link to="/?tab=tasks">{{ $t('pages.tasks') }}</nuxt-link>
 						</li>
-						<li>{{ t('documentation') }}</li>
+						<li>{{ $t('pages.documentation') }}</li>
 					</ul>
 				</div>
 			</div>
@@ -44,13 +47,3 @@ const { t } = useI18n({ useScope: 'local' })
 const { projects, project, replace, refresh } = inject('projects') as ProjectsResource
 const user = useSupabaseUser()
 </script>
-
-<i18n lang="json">
-{
-	"en": {
-		"overview": "Overview",
-		"tasks": "Tasks",
-		"documentation": "Documentation"
-	}
-}
-</i18n>

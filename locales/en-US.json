@@ -30,6 +30,9 @@
 		"dark": "Dark"
 	},
 	"pages": {
+		"overview": "Overview",
+		"tasks": "Tasks",
+		"documentation": "Documentation",
 		"account": "Account"
 	},
 	"loading": {

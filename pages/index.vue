@@ -15,7 +15,7 @@
 <script setup lang="ts">
 const editor = ref({ open: false })
 const { t } = useI18n({ useScope: 'local' })
-const { project, refresh } = inject('projects') as ProjectsResource
+const { project } = inject('projects') as ProjectsResource
 
 useHead({
 	title: t('app')

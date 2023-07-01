@@ -13,6 +13,7 @@ declare global {
 		projects: Project[]
 		replace: (current: Project) => void
 		refresh: () => Promise<void>
+		loading: boolean
 	}
 	type ProfileResource = {
 		profile: Profile
