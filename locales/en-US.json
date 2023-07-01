@@ -10,7 +10,8 @@
 		"sign-in": "Sign-in",
 		"sign-out": "Sign-out",
 		"register": "Register",
-		"forgot-password": "Forgot Password?"
+		"forgot-password": "Forgot Password?",
+		"send": "Send"
 	},
 	"field": {
 		"project-name": "Project Name",
@@ -30,5 +31,10 @@
 	},
 	"pages": {
 		"account": "Account"
+	},
+	"loading": {
+		"generic": "Working...",
+		"authenticating": "Authenticating...",
+		"sending": "Sending..."
 	}
 }

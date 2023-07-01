@@ -13,7 +13,8 @@
 						id="email"
 						v-model.trim="credentials.email"
 						:label="$t('field.email')"
-						:placeholder="$t('placeholder.email')" />
+						:placeholder="$t('placeholder.email')"
+						:disabled="loading" />
 				</div>
 				<div>
 					<form-group
@@ -21,13 +22,24 @@
 						id="password"
 						v-model.trim="credentials.password"
 						:label="$t('field.password')"
-						:placeholder="$t('placeholder.password')" />
+						:placeholder="$t('placeholder.password')"
+						:disabled="loading" />
 				</div>
 				<nuxt-link to="/forgot-password" class="text-link block text-right">
 					{{ $t('actions.forgot-password') }}
 				</nuxt-link>
 			</div>
-			<button type="submit" class="button-primary">{{ $t('actions.sign-in') }}</button>
+			<div class="space-x-2">
+				<spinner-button type="submit" class="button-primary" :loading="loading">
+					<template #content>
+						{{ $t('actions.sign-in') }}
+					</template>
+					<template #loading>
+						{{ $t('loading.authenticating') }}
+					</template>
+				</spinner-button>
+				<nuxt-link to="/sign-up" class="text-link">{{ t('register') }}</nuxt-link>
+			</div>
 		</form>
 	</page>
 </template>
@@ -65,7 +77,8 @@ useHead({
 {
 	"en": {
 		"heading": "Sign-in to Arbeit",
-		"description": "Enter your proper credentials to continue"
+		"description": "Enter your proper credentials to continue",
+		"register": "Create an account"
 	}
 }
 </i18n>

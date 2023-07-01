@@ -13,12 +13,18 @@
 						id="email"
 						v-model.trim="form.email"
 						:label="$t('field.email')"
-						:placeholder="$t('placeholder.email')" />
+						:placeholder="$t('placeholder.email')"
+						:disabled="loading" />
 				</div>
 			</div>
-			<button type="submit" class="button-primary">
-				{{ $t('actions.sign-in') }}
-			</button>
+			<spinner-button type="submit" class="button-primary" :loading="loading">
+				<template #content>
+					{{ $t('actions.send') }}
+				</template>
+				<template #loading>
+					{{ $t('loading.sending') }}
+				</template>
+			</spinner-button>
 		</form>
 	</page>
 </template>

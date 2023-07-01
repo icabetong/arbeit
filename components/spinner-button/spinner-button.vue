@@ -1,18 +1,24 @@
 <template>
-	<button v-bind="$attrs" class="flex items-center justify-center">
-		<span v-if="loading && loadingLabel">
+	<button
+		v-bind="$attrs"
+		class="inline-flex items-center justify-center"
+		:disabled="loading"
+		:aria-diabled="loading">
+		<template v-if="loading">
 			<spinner class="mr-2" dimensions="h-4 w-4" />
-			{{ loadingLabel }}
-		</span>
-		<span v-else class="flex items-center justify-center">
-			<slot></slot>
-		</span>
+			<slot name="loading"></slot>
+		</template>
+		<template v-else class="flex items-center justify-center">
+			<slot name="content"></slot>
+		</template>
 	</button>
 </template>
 
 <script setup lang="ts">
+defineOptions({
+	inheritAttrs: false
+})
 defineProps<{
-	loadingLabel?: string
 	loading: boolean
 }>()
 </script>

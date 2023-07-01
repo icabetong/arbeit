@@ -12,7 +12,8 @@
 						id="email"
 						v-model.trim="credentials.email"
 						:label="$t('field.email')"
-						:placeholder="$t('placeholder.email')" />
+						:placeholder="$t('placeholder.email')"
+						:disabled="loading" />
 				</div>
 				<div>
 					<form-group
@@ -20,10 +21,21 @@
 						id="password"
 						v-model.trim="credentials.password"
 						:label="$t('field.password')"
-						:placeholder="$t('placeholder.password')" />
+						:placeholder="$t('placeholder.password')"
+						:disabled="loading" />
 				</div>
 			</div>
-			<button type="submit" class="button-primary">{{ $t('actions.register') }}</button>
+			<div class="space-x-2">
+				<spinner-button type="submit" class="button-primary" :loading="loading">
+					<template #content>
+						{{ $t('actions.register') }}
+					</template>
+					<template #loading>
+						{{ $t('loading.generic') }}
+					</template>
+				</spinner-button>
+				<nuxt-link to="/sign-in" class="text-link">{{ t('login') }}</nuxt-link>
+			</div>
 		</form>
 	</page>
 </template>
@@ -60,7 +72,8 @@ useHead({
 {
 	"en": {
 		"heading": "Create an account",
-		"description": "Enter your proper credentials to continue"
+		"description": "Enter your proper credentials to continue",
+		"login": "Have an account?"
 	}
 }
 </i18n>
