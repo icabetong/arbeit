@@ -27,9 +27,7 @@
 <script setup lang="ts">
 import { CheckIcon } from '@heroicons/vue/20/solid'
 
-defineProps({
-	open: Boolean
-})
+defineProps({ open: Boolean })
 const emit = defineEmits(['hide'])
 
 const { t } = useI18n({ useScope: 'local' })

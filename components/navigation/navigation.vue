@@ -19,12 +19,20 @@
 						:refresh="refresh" />
 					<ul class="hidden items-center justify-around gap-4 text-sm font-medium sm:flex">
 						<li>
-							<nuxt-link to="/">{{ $t('pages.overview') }}</nuxt-link>
+							<nuxt-link to="/" :class="tabClass('')">
+								{{ $t('pages.overview') }}
+							</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to="/?tab=tasks">{{ $t('pages.tasks') }}</nuxt-link>
+							<nuxt-link to="/?tab=tasks" :class="tabClass('tasks')">
+								{{ $t('pages.tasks') }}
+							</nuxt-link>
 						</li>
-						<li>{{ $t('pages.documentation') }}</li>
+						<li>
+							<nuxt-link to="/?tab=documentation" :class="tabClass('documentation')">
+								{{ $t('pages.documentation') }}
+							</nuxt-link>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -43,7 +51,13 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n({ useScope: 'local' })
+const route = useRoute()
 const { projects, project, replace, refresh } = inject('projects') as ProjectsResource
 const user = useSupabaseUser()
+
+function tabClass(path: string) {
+	return path === route.query['tab'] || (path === '' && route.query['tab'] === undefined)
+		? 'font-semibold text-gray-700'
+		: ''
+}
 </script>

@@ -28,6 +28,7 @@ model Task {
   description String   @default("")
   priority    Int      @default(0) @db.SmallInt
   project     String?  @db.Uuid
+  status      String   @default("pending")
   projects    Project? @relation(fields: [project], references: [projectId], onDelete: Cascade, onUpdate: NoAction, map: "tasks_ibfk_1")
 
   @@map("tasks")
