@@ -20,7 +20,9 @@
 		"password": "Password",
 		"task-name": "Task",
 		"priority": "Priority",
-		"status": "Status"
+		"status": "Status",
+		"created": "Created",
+		"updated": "Updated"
 	},
 	"placeholder": {
 		"project-name": "My Project",
