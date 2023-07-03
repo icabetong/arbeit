@@ -41,4 +41,13 @@ body {
 	.banner-danger {
 		@apply rounded-md border border-rose-500 bg-rose-50 px-4 py-2 text-sm font-medium text-rose-600;
 	}
+	.dropdown-button {
+		@apply flex items-center rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 shadow hover:bg-gray-100 focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:border-gray-100 disabled:text-gray-300 disabled:hover:bg-inherit dark:border-gray-700 dark:text-white dark:hover:bg-gray-700;
+	}
+	.dropdown-panel {
+		@apply absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base text-gray-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-700 dark:text-gray-100 sm:text-sm;
+	}
+	.dropdown-option {
+		@apply cursor-pointer px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600;
+	}
 }

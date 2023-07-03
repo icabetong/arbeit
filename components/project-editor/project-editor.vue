@@ -15,8 +15,13 @@
 						{{ $t('actions.cancel') }}
 					</button>
 					<spinner-button type="submit" class="button-primary" :loading="state.loading">
-						<check-icon class="mr-2 h-4 w-4" />
-						{{ $t('actions.create') }}
+						<template #content>
+							<check-icon class="mr-2 h-4 w-4" />
+							{{ $t('actions.save') }}
+						</template>
+						<template #loading>
+							<span>{{ $t('loading.saving') }}</span>
+						</template>
 					</spinner-button>
 				</div>
 			</form>

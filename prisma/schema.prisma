@@ -21,14 +21,16 @@ model Project {
 }
 
 model Task {
-  taskId      String   @id(map: "Tasks_pkey") @db.Uuid
+  taskId      String   @id(map: "Tasks_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   created     DateTime @default(now()) @db.Timestamptz(6)
   updated     DateTime @default(now()) @db.Timestamptz(6)
   title       String   @default("") @db.VarChar
   description String   @default("")
-  priority    Int      @default(0) @db.SmallInt
+  priority    String   @default("'low'::text")
   project     String?  @db.Uuid
   status      String   @default("pending")
+  author      String?  @db.Uuid
+  profiles    Profile? @relation(fields: [author], references: [id], onDelete: NoAction, onUpdate: NoAction)
   projects    Project? @relation(fields: [project], references: [projectId], onDelete: Cascade, onUpdate: NoAction, map: "tasks_ibfk_1")
 
   @@map("tasks")
@@ -44,6 +46,7 @@ model Profile {
   email     String?
   avatarURL String?
   projects  Project[]
+  tasks     Task[]
 
   @@map("profiles")
 }

@@ -17,12 +17,16 @@
 		"project-name": "Project Name",
 		"description": "Description",
 		"email": "Email",
-		"password": "Password"
+		"password": "Password",
+		"task-name": "Task",
+		"priority": "Priority",
+		"status": "Status"
 	},
 	"placeholder": {
 		"project-name": "My Project",
 		"email": "someoneexample.com",
-		"password": "*********"
+		"password": "*********",
+		"task-name": "My Task"
 	},
 	"theme": {
 		"auto": "System",
@@ -38,6 +42,20 @@
 	"loading": {
 		"generic": "Working...",
 		"authenticating": "Authenticating...",
-		"sending": "Sending..."
+		"sending": "Sending...",
+		"saving": "Saving..."
+	},
+	"status": {
+		"pending": "Pending",
+		"in-progress": "In Progress",
+		"for-review": "For Review",
+		"finished": "Finished",
+		"revisions": "Revisions"
+	},
+	"priority": {
+		"low": "Low",
+		"medium": "Medium",
+		"high": "High",
+		"urgent": "Urgent"
 	}
 }

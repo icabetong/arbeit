@@ -23,7 +23,7 @@
 						leave-from="opacity-100 scale-100"
 						leave-to="opacity-0 scale-95">
 						<dialog-panel
-							class="z-30 w-full transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all dark:bg-gray-800 dark:text-gray-50"
+							class="z-30 w-full transform rounded-2xl bg-white text-left align-middle shadow-xl transition-all dark:bg-gray-800 dark:text-gray-50"
 							:class="size ? size : 'max-w-md'">
 							<button
 								type="button"

@@ -9,7 +9,7 @@ declare global {
 		change: (current: Theme) => void
 	}
 	type ProjectsResource = {
-		project: Project
+		project: Ref<Project>
 		projects: Project[]
 		replace: (current: Project) => void
 		refresh: () => Promise<void>

@@ -25,7 +25,7 @@
 						:disabled="loading" />
 				</div>
 			</div>
-			<div class="space-x-2">
+			<div class="space-x-6">
 				<spinner-button type="submit" class="button-primary" :loading="loading">
 					<template #content>
 						{{ $t('actions.register') }}

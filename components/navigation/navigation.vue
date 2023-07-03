@@ -57,7 +57,7 @@ const user = useSupabaseUser()
 
 function tabClass(path: string) {
 	return path === route.query['tab'] || (path === '' && route.query['tab'] === undefined)
-		? 'font-semibold text-gray-700'
+		? 'font-semibold text-gray-700 dark:text-gray-50'
 		: ''
 }
 </script>

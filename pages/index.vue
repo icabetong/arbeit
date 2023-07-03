@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+const i18n = useI18n()
 const route = useRoute()
 const { t } = useI18n({ useScope: 'local' })
 const editor = ref({ open: false })
@@ -34,7 +35,7 @@ watch(
 	}
 )
 useHead({
-	title: t('app')
+	title: i18n.t('app')
 })
 </script>
 
