@@ -11,7 +11,8 @@
 		"sign-out": "Sign-out",
 		"register": "Register",
 		"forgot-password": "Forgot Password?",
-		"send": "Send"
+		"send": "Send",
+		"manage-projects": "Manage Projects"
 	},
 	"field": {
 		"project-name": "Project Name",
@@ -39,7 +40,8 @@
 		"overview": "Overview",
 		"tasks": "Tasks",
 		"documentation": "Documentation",
-		"account": "Account"
+		"account": "Account",
+		"projects": "Projects"
 	},
 	"loading": {
 		"generic": "Working...",

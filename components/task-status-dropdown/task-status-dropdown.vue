@@ -6,7 +6,7 @@
 		class="relative">
 		<listbox-button class="dropdown-button w-full">
 			<span class="flex-1 text-left">{{ $t(`status.${modelValue}`) }}</span>
-			<chevron-down-icon class="ml-2 h-5 w-5" />
+			<chevron-down-icon class="ml-2 h-4 w-4" />
 		</listbox-button>
 		<transition
 			enter-active-class="transition duration-100 ease-out"
