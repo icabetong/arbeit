@@ -50,4 +50,19 @@ body {
 	.dropdown-option {
 		@apply cursor-pointer px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600;
 	}
+	.table-root {
+		@apply w-full text-left text-sm text-gray-700;
+	}
+	.table-head {
+		@apply border-b;
+	}
+	.table-legend {
+		@apply p-2 font-medium text-gray-500;
+	}
+	.table-row {
+		@apply border-b last:border-b-0;
+	}
+	.table-data {
+		@apply p-2;
+	}
 }
